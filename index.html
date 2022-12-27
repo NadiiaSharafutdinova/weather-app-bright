@@ -32,7 +32,7 @@
     <div class="container">
       <header>
         <ul class="list">
-          <li class="chosen-city" id = "currentPosition">Lipovljani</li>
+          <li class="chosen-city" >Lipovljani</li>
           <li class="chosen-city">Novska</li>
           <li class="chosen-city">Kutina</li>
         </ul>
@@ -44,8 +44,8 @@
       </header>
       <section class="hero">
         <div class="input">
-          <form class = search-form>
-            <input type="text" id="city-input"/>
+          <form class = "search-form" id="search-form">
+            <input type="text" id="city-input" placeholder="Enter a city"/>
             <button type="submit" class="go-button">Let's Go!</button>
             <button type = "submit" class = "go-button" id="current">Current</button>
         </div>
@@ -53,21 +53,23 @@
       </section>
       <section class="main">
         <div class="row">
-          <div class="col-8">
+          <div class = "forecast">
             <img
-              src="./image/clear-sky.png"
-              alt="Clear sky"
+              src=""
+              alt=""
               class="weather-icon-main"
+              id="icon"
               width="60"
             />
             <h1 class="city">Zagreb</h1>
             <h2 class="date">14.11</h2>
             <h3 class="time">11:00</h3>
-            <p class="temperature">
-              <span class="limit-temperature">+6&#8451;</span>
-              <span class="current-temperature">+12 </span><span class="celsius">&#8451;|</span><span class="farenheit">F</span>
-              <span class="limit-temperature">+16&#8451;</span>
-            </p>
+            <div class="temperature">
+              <span class="limit-temperature" id="max-temp">+6</span><span class="celsius-small">&#8451;</span>
+              <span class="current-temperature" id="current-temperature">+12 </span><a href="" class="celsius" id="celsius-link">&#8451;|</a><a href="" class="farenheit" id="farenheit-link">F</a>
+              <span class="limit-temperature" id="min-temp">+16</span>
+            <span class="celsius-small">&#8451;</span>
+            </div>
             <ul class="list features">
               <li>Wind: <span id = "wind"></span><span> km/h</span></li>
               <li>Humidity: <span id = "humidity"></span><span> %</span></li>
