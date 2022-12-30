@@ -30,29 +30,16 @@
   </head>
   <body>
     <div class="container">
-      <header>
-        <ul class="list">
-          <li class="chosen-city" >Lipovljani</li>
-          <li class="chosen-city">Novska</li>
-          <li class="chosen-city">Kutina</li>
-        </ul>
-        <svg class="settings" width="15" viewBox="0 0 512 512">
-          <path
-            d="M495.9 166.6c3.2 8.7.5 18.4-6.4 24.6l-43.3 39.4c1.1 8.3 1.7 16.8 1.7 25.4s-.6 17.1-1.7 25.4l43.3 39.4c6.9 6.2 9.6 15.9 6.4 24.6-4.4 11.9-9.7 23.3-15.8 34.3l-4.7 8.1c-6.6 11-14 21.4-22.1 31.2-5.9 7.2-15.7 9.6-24.5 6.8l-55.7-17.7c-13.4 10.3-28.2 18.9-44 25.4l-12.5 57.1c-2 9.1-9 16.3-18.2 17.8-13.8 2.3-28 3.5-42.5 3.5s-28.7-1.2-42.5-3.5c-9.2-1.5-16.2-8.7-18.2-17.8l-12.5-57.1c-15.8-6.5-30.6-15.1-44-25.4l-55.6 17.8c-8.8 2.8-18.6.3-24.5-6.8-8.1-9.8-15.5-20.2-22.1-31.2l-4.7-8.1c-6.1-11-11.4-22.4-15.8-34.3-3.2-8.7-.5-18.4 6.4-24.6l43.3-39.4c-1.1-8.4-1.7-16.9-1.7-25.5s.6-17.1 1.7-25.4l-43.3-39.4c-6.9-6.2-9.6-15.9-6.4-24.6 4.4-11.9 9.7-23.3 15.8-34.3l4.7-8.1c6.6-11 14-21.4 22.1-31.2 5.9-7.2 15.7-9.6 24.5-6.8l55.7 17.7c13.4-10.3 28.2-18.9 44-25.4l12.5-57.1c2-9.1 9-16.3 18.2-17.8C227.3 1.2 241.5 0 256 0s28.7 1.2 42.5 3.5c9.2 1.5 16.2 8.7 18.2 17.8l12.5 57.1c15.8 6.5 30.6 15.1 44 25.4l55.7-17.7c8.8-2.8 18.6-.3 24.5 6.8 8.1 9.8 15.5 20.2 22.1 31.2l4.7 8.1c6.1 11 11.4 22.4 15.8 34.3zM256 336c44.2 0 80-35.8 80-80s-35.8-80-80-80-80 35.8-80 80 35.8 80 80 80z"
-          />
-        </svg>
-      </header>
-      <section class="hero">
+        <header class="hero">
         <div class="input">
           <form class = "search-form" id="search-form">
-            <input type="text" id="city-input" placeholder="Enter a city"/>
+            <input class = "form-input" type="text" id="city-input" placeholder="Enter a city"/>
             <button type="submit" class="go-button">Let's Go!</button>
             <button type = "submit" class = "go-button" id="current">Current</button>
         </div>
         </form>
-      </section>
+      </header>
       <section class="main">
-        <div class="row">
           <div class = "forecast">
             <img
               src=""
@@ -77,60 +64,11 @@
               <li>Visibility:<span id = "visibility"></span> km</li>
             </ul>
           </div>
-          <div class="cards col-4">
-            <div class="card">
-              <p class="card-date">16.11</p>
-              <img
-                class="weather-icon"
-                src="./image/heavy-rain.png"
-                alt="Heavy rain"
-                width="30"
-              />
-              <p class="temperature">+10&#8451;...+12&#8451;</p>
-            </div>
-            <div class="card">
-              <p class="card-date">17.11</p>
-              <img
-                class="weather-icon"
-                src="./image/cloud.png"
-                alt="Cloud"
-                width="30"
-              />
-              <p class="temperature">+10&#8451;...+12&#8451;</p>
-            </div>
-            <div class="card">
-              <p class="card-date">18.11</p>
-              <img
-                class="weather-icon"
-                src="./image/heavy-rain.png"
-                alt="Heavy rain"
-                width="30"
-              />
-              <p class="temperature">+10&#8451;...+12&#8451;</p>
-            </div>
-            <div class="card">
-              <p class="card-date">19.11</p>
-              <img
-                class="weather-icon"
-                src="./image/sunny.png"
-                alt="Sunny"
-                width="30"
-              />
-              <p class="temperature">+10&#8451;...+12&#8451;</p>
-            </div>
+          <div class="cards" id="forecast">
           </div>
-        </div>
-      </section>
-      <section class="more-links">
-        <div class="row">
-          <div class="col-6">
-            <a href="" class="more">10 days</a>
+            <a href = "https://github.com/NadiiaSharafutdinova/weather-app-bright/tree/main" class = "link-github">See on GitHub</a>
+  </section>
           </div>
-          <div class="col-6"><a href="" class="more">Monthly</a></div>
-        </div>
-      </section>
-      <a href = "https://github.com/NadiiaSharafutdinova/weather-app-bright/tree/main" class = "link-github">See on GitHub</a>
-    </div>
     
     <script src = "./index.js">
 
