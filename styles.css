@@ -61,7 +61,6 @@ form {
     background-color: #fce6ae;
     border: 1px solid #7b9e97;
   }
-/*main styles*/
 .forecast{
   text-align: center;
   padding-left: 35px;
@@ -75,13 +74,15 @@ margin-right: auto;
 justify-content: center;
 }
 .card{
+  margin-top: 20px;
   display: inline-block;
   background-color: #f9da8a;
-  border:2px solid #7b9e97;
   padding-top: 10px;
-  padding-right: 10px;
-  padding-left: 15px;
+  text-align: center;
  margin-bottom: 10px;
+}
+.card:nth-child(even){
+  background-color: #7b9e97;
 }
 h1 {
   font-weight: 700;
@@ -93,26 +94,24 @@ h2 {
 h3 {
   font-size: 20px;
 }
-.current-temperature,
-.celsius,
-.farenheit {
+.current-temperature{
   display: inline-block;
   padding-top: 22px;
   font-size: 28px;
   font-weight: 700;
   color: #8d322f;
   }
-  .current-temperature{
-  margin-left: 12px;
-}
 .limit-temperature {
   display: inline-block;
   margin-right: 0;
   margin-left: 12px;
   font-size: 18px;
   color: #f8bd61;
-  
+    }
+  .min-temp{
+    margin-right: 12px;
   }
+  
  .celsius-small{
   color: #f8bd61;
  }

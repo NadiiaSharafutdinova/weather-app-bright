@@ -14,7 +14,13 @@ let nowTime = document.querySelector(".time");
 nowTime.innerHTML = ` ${hour}:${minute}`;
 
 let date = currentDate.getDate();
+if(date<10){
+date = `0${date}`
+}
 let month = currentDate.getMonth();
+if(month<10){
+  month = `${month}`
+}
 let nowDate = document.querySelector(".date");
 nowDate.innerHTML = `${day}, ${date}.${month+1}`
 
@@ -50,36 +56,37 @@ function formatDay(timestamp) {
   return days[day];
 }
 
-function displayForecast(response){
+function displayForecast(response) {
   let forecast = response.data.daily;
 
   let forecastElement = document.querySelector("#forecast");
-  
+
   let forecastHTML = `<div class="row">`;
-  days.forEach(function (forecastDay, index) {
+  forecast.forEach(function (forecastDay, index) {
     if (index < 6) {
-    forecastHTML = forecastHTML + `
+      forecastHTML =
+        forecastHTML +
+        `
     <div class="card col"${day}>
-    <div class="weather-forecast-date">${forecastDay.dt}</div>
-              <p class="card-date">16.11</p>
-              <img
+    <div class="weather-forecast-date">${formatDay(forecastDay.dt)}</div>
+                <img
                 class="weather-icon"
-                src="http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png"
+                src="http://openweathermap.org/img/wn/${forecastDay.weather[0].icon}@2x.png"
                 alt=""
                 width="30"
               />
-              <div class="weather-forecast-temperatures"><span class="temperature weather-forecast-temperature-min">${forecastDay.temp.min}&#8451;<span><span class="weather-forecast-temperature-max">${forecastDay.temp.max}&#8451;</span>
+              <div class="weather-forecast-temperatures"><span class="temperature weather-forecast-temperature-min">${Math.round(forecastDay.temp.min)}&#8451;<span>/<span class="weather-forecast-temperature-max">${Math.round(forecastDay.temp.max)}&#8451;</span>
             </div></div>`;
     }
-          });
+  });
 
-          forecastHTML = forecastHTML + `</div>`;
-          forecastElement.innerHTML = forecastHTML;
-        }
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
+}
 
   function getForecast(coordinates) {
   let apiKey = "8d9838178b5b401f1b4e7cb5af18e210";
- let apiUrl = `https://api.openweathermap.org/data/3.0/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
+ let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
   axios.get(apiUrl).then(displayForecast);
       
                
@@ -130,15 +137,6 @@ function displayWeather(response) {
     searchCity(city);
   }
 
-  function displayFarenheitTemp(event) {
-    event.preventDefault();
-    let currentTemp = document.querySelector("#current-temperature");
-    celsiusLink.classList.remove("active");
-    fahrenheitLink.classList.add("active");
-    let FarenheitTemp = (CelsiusTemp*9)/5*32; 
-   currentTemp.innerHTML = Math.round(FarenheitTemp);
-
-  }
 function displayCelsiusTemp(event){
     event.preventDefault();
     let currentTemp = document.querySelector("#current-temperature");
@@ -158,22 +156,10 @@ function displayCelsiusTemp(event){
     event.preventDefault();
     navigator.geolocation.getCurrentPosition(searchLocation);
   } 
-  
-  
-  
-  let CelsiusTemp = null;
-  let searchForm = document.querySelector(".search-form");
+   let searchForm = document.querySelector(".search-form");
   searchForm.addEventListener("submit", handleSubmit);
   
   let currentLocationButton = document.querySelector("#current");
   currentLocationButton.addEventListener("click", getCurrentLocation);
-  
- 
-
-  let farenheitLink = document.querySelector("#farenheit-link");
-  farenheitLink.addEventListener("click", displayFarenheitTemperature);
-
-  let celsiusLink = document.querySelector("#celsius-link");
-  farenheitLink.addEventListener("click", displayCelsiusTemperature);
-
+     
   searchCity("Zagreb");
